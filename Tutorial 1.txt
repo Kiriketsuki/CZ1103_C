@@ -1,0 +1,57 @@
+1.
+    a) character
+    b) int
+    c) float
+    d) character
+    e) hex
+    f) character
+    g) long int
+    h) float
+    i) int
+    j) int
+    k) hex
+    l) hex
+
+2)
+    a) AAAA
+    b) A65AA
+    c) A65)A
+    d) A65)e
+
+3)
+    a) whatever the user inputs will be formatted as a decimal and stored in x and y respectively
+    b) nothing happens, scanf was not told to store inputs into x and y
+    c) the first input will be stored as x, the second input if seperated by a / from the first input will be stored as y, else y defaults to :
+
+4) floating point rounding error
+
+5) 
+    a) 5/2 = 2
+    b) 5/4 = 1
+    c) (1.2+10) = 11.2. 11.2*20 = 224.0
+    d) 2*5 = 10. i = 3
+    e) 3*5 = 10. i = 4 
+    f) (g-f) = 2.2000000000000001. -12L * 2.2 = -26.4000000000002
+    g) --j = 1. m = n = 1
+    h) (int) g = 3. 3*10 = 30
+    i) g*10 = 34.0. (int) (34.0) = 34
+    j) i == 4, f == 1.2. j = 5.2
+
+6)
+    a and c works
+
+7)
+    a) make DLENGTH a smaller constant
+    b) make count a long int, increase DLENGTH by a factor of 1000
+    c) instead of using DLENGTH, declare a variable and use it instead
+
+8)
+    int a;
+    int b;
+    int temp;
+
+    temp = a;
+    a = b;
+    b = temp;
+
+    no
