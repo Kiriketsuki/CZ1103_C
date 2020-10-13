@@ -10,7 +10,7 @@ void square_2 (int num, int *result);
 
 int main() {
     int choice;
-    int number, digit, *result = 0;
+    int number, digit, result = 0;
 
     do {
         printf("\nPerform the following functions ITERATIVELY:\n");
@@ -147,23 +147,18 @@ void digits_pos_2 (int num, int digit, int *result) {
 
 int square_1 (int num) {
     int sum = 0;
-    int to_add = 1;
-    for (int i = 0; i < num; i++)
+    for (int i = 1; i < num*2; i += 2)
     {
-        sum += to_add;
-        to_add += 2;
+        sum += i;
     }
     return sum;
 }
 
 void square_2 (int num, int *result) {
     *result = 0;
-    int to_add = 1;
-
-    for (int i = 0; i < num; i++)
+    for (int i = 1; i <= num*2; i+=2)
     {
-        *result += to_add;
-        to_add += 2;
+        *result += i;
     }
     
 }
