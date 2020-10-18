@@ -1,0 +1,80 @@
+1.
+    The program initializes an array containing 3 arrays, each containing an array with 4 elements. 
+    [[1,2,3,4]
+     [5,6,7,8]
+     [9,10,11,12]]
+    It creates 2 empty integer variables h and k
+    It for loops and asks the user to fill in each element of each array
+    At line a, it for loops, going through each row, and using the add1 function to add 1 to the content of each element of each row
+
+    If line a is changed to add1(array[0], 3*4), it still works as the function add1 adds 1 by using pointers. the pointer is incremented by 1 12 times in both variants
+
+2.
+    
+3.
+    #include <stdio.h>
+    #include <stdlib.h>
+    
+    
+    void transpose2D( int row_size, int col_size,int ar[][col_size]) {
+        int ar_2[row_size][col_size];
+    
+        for(int i = 0; i < row_size; i++) {
+            for(int j = 0; j < col_size; j++) {
+                ar_2[i][j] = ar[i][j];
+            }
+        }
+        
+        for(int i = 0; i < row_size; i++) {
+            for(int j = 0; j < col_size; j++) {
+                ar[j][i] = ar_2[i][j];
+            }
+        }
+    }
+    
+    int main () {
+        int test[4][4] = {{1,2,3,4},{1,1,2,2},{3,3,4,4},{4,5,6,7}};
+        
+        transpose2D(4,4,test);
+        
+        for (int i = 0; i<4;i++){
+            for (int j = 0; j<4; j++){
+                printf("%d",test[i][j]);
+            }
+            putchar('\n');
+        }
+    
+    }
+
+4. 
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void reduce_matrix_2D (int row_size, int col_size, int ar[row_size][col_size]) {
+    for (int j = col_size-1; j > -1 ; j--) {
+        int sum = 0;
+        for (int i = row_size-1; i > -1; i--) {
+            if (i > j){
+                sum += ar[i][j];
+                ar[i][j] = 0;
+            } else { if (i == j) {
+                ar[i][j] += sum;
+                }        
+            }
+        }
+    }
+}
+
+int main () {
+    int arr[][4] = {{4,3,8,6},{9,0,6,5},{5,1,2,4},{9,8,3,7}};
+
+    reduce_matrix_2D(4,4,arr);
+    for (int i = 0; i < 4; i ++) {
+        for (int j = 0; j < 4; j++) {
+            printf("%d", arr[i][j]);
+            printf(" ");
+        }
+        putchar('\n');
+    }
+}
