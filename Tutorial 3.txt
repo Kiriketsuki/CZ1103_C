@@ -11,6 +11,103 @@
 
 2.
     
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int get_number_of_stars () {
+   int stars_no;
+   printf("Please enter the amount of numbers you want generated: \n");
+   scanf("%d", &stars_no);
+   return stars_no;
+}
+
+void print_stars(int arr[]) {
+   int *pt = arr;
+   for (pt; pt != &arr[100]; pt++) {
+      if (*pt == 42) {
+         printf("*");
+      }
+   }
+
+   printf("\n");
+}
+
+void add_stars(int arr[]) {
+   for (int i = 0; i < 100; i ++) {
+      if (arr[i] != 42) {
+         arr[i] = 42;
+         break;
+      }
+   }
+}
+
+int main () {
+   int zero[100], ten[100], twenty[100], thirty[100], fourty[100], fifty[100], sixty[100], seventy[100], eighty[100], ninety[100];
+   int generated_no, stars_no;  
+   srand(time(NULL));
+
+   stars_no = get_number_of_stars();
+
+   for (int i = 0; i < stars_no; i++) {
+      generated_no = rand()%100;
+      switch (generated_no / 10) {
+         case 0:
+            add_stars(zero);
+            break;
+         case 1:
+            add_stars(ten);
+            break;
+         case 2:
+            add_stars(twenty);
+            break;
+         case 3:
+            add_stars(thirty);
+            break;
+         case 4:
+            add_stars(fourty);
+            break;
+         case 5:
+            add_stars(fifty);
+            break;
+         case 6:
+            add_stars(sixty);
+            break;
+         case 7:
+            add_stars(seventy);
+            break;
+         case 8:
+            add_stars(eighty);
+            break;
+         case 9:
+            add_stars(ninety);
+            break;
+         default:
+            break;
+      }
+   }
+
+   printf("00 - 09 | ");
+   print_stars(zero);
+   printf("10 - 19 | ");
+   print_stars(ten);
+   printf("20 - 29 | ");
+   print_stars(twenty);
+   printf("30 - 39 | ");
+   print_stars(thirty);
+   printf("40 - 49 | ");
+   print_stars(fourty);
+   printf("50 - 59 | ");
+   print_stars(fifty);
+   printf("60 - 69 | ");
+   print_stars(sixty);
+   printf("70 - 79 | ");
+   print_stars(seventy);
+   printf("80 - 89 | ");
+   print_stars(eighty);
+   printf("90 - 99 | ");
+   print_stars(ninety);
+}
 3.
     #include <stdio.h>
     #include <stdlib.h>
