@@ -1,0 +1,118 @@
+1. 
+    printf(M1) prints "How are ya, sweetie", with no whitespace/newline
+    puts(M1) prints "How are ya, sweeties", with a newline character after
+    puts(M2) prints "Beat the clock.", with a newline character after
+    puts(M2+1) prints M2 starting from the character with index of 1. "eat the clock.", with newline after
+    "win a toy" gets assigned to words
+    puts(words) prints "win a toy", with a newline after
+    words = {w,i,n, ,a, ,t,o,y,\0}
+    scanf changes "t" onwards into snoopy
+    puts(words) prints "win a snoopy", with a newline after
+    words[3] = \0 makes the string word terminate after "win"
+    puts(words) prints "win"
+
+    prints "chat"
+    prints "chat"
+    prints " "
+    infinite loop of 3 "How are ya sweetie"
+
+2. 
+    the integer it returns is the number of times c appears in str[]
+    if c doesnt appear, it returns 0
+    if c does appear, each instance of c is removed
+
+
+    int main () {
+    char imagine[] = "imagine lmao";
+    puts(imagine);
+    int number_of = unknown(imagine, 'a');
+    puts(imagine);
+    printf("%d", number_of); 
+    }
+
+    this puts "imagine lmao"
+    then "imgine lmo"
+    then puts "2"
+
+3.
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+    
+    char *helps(char *s1, char *s2, int n) {
+    int s2_len;
+    
+    s2_len = (int)strlen(s2);
+    
+    for (int i = 0; i < n; i++) {
+        if (i > s2_len) {
+            strncat(s1, '\0',1);
+        } else {
+            strncat(s1, s2 + i, 1);
+        }
+    }
+    return s1;
+    }
+    
+    int main () {
+    char imagine[100] = "imagine";
+    char buyiyang[100] = "bu yi yang";
+    char *test;
+    
+    puts(imagine);
+    puts(buyiyang);
+    
+    test = helps(imagine, buyiyang, 10);
+    puts(test);
+    }
+
+4.
+    #include <stdio.h>
+    #include <stdlib.h>
+    
+    int strlen(char *s1) {
+    int len = 0;
+    for (int i = 0; s1[i] != '\0'; i++) {
+        len++;
+    }
+    return len;
+    }
+    
+    int stringcmp(char *s1, char *s2) {
+    int to_return = 0;
+    int s1_len = strlen(s1);
+    int s2_len = strlen(s2);
+    int max = (s1_len >= s2_len) ? s1_len : s2_len;
+    
+    for (int i = 0; i < max; i++) {
+        int one_compare = (int)s1[i];
+        int two_compare = (int)s2[i];
+    
+        if (s1[i] == '\0' && s2[i] != '\0') {
+            to_return = -1;
+            return to_return;
+        } else if (s2[i] == '\0' && s1[i] != '\0') {
+            to_return = 1;
+            return to_return;
+        }
+    
+        if (one_compare > two_compare) {
+            to_return = 1;
+            return to_return;
+        } else if (one_compare < two_compare) {
+            to_return = -1;
+            return to_return;
+        }
+    }
+    return to_return;
+    }
+    
+    int main () {
+    char imagine[] = "imagine";
+    char test[] = "imaginf";
+    int boolean;
+    
+    boolean = stringcmp(imagine,test);
+    
+    printf("%d", boolean);
+    }
