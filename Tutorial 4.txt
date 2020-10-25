@@ -71,48 +71,48 @@
     #include <stdlib.h>
     
     int strlen(char *s1) {
-    int len = 0;
-    for (int i = 0; s1[i] != '\0'; i++) {
-        len++;
-    }
-    return len;
+        int len = 0;
+        for (int i = 0; s1[i] != '\0'; i++) {
+            len++;
+        }
+        return len;
     }
     
     int stringcmp(char *s1, char *s2) {
-    int to_return = 0;
-    int s1_len = strlen(s1);
-    int s2_len = strlen(s2);
-    int max = (s1_len >= s2_len) ? s1_len : s2_len;
-    
-    for (int i = 0; i < max; i++) {
-        int one_compare = (int)s1[i];
-        int two_compare = (int)s2[i];
-    
-        if (s1[i] == '\0' && s2[i] != '\0') {
-            to_return = -1;
-            return to_return;
-        } else if (s2[i] == '\0' && s1[i] != '\0') {
-            to_return = 1;
-            return to_return;
+        int to_return = 0;
+        int s1_len = strlen(s1);
+        int s2_len = strlen(s2);
+        int max = (s1_len >= s2_len) ? s1_len : s2_len;
+        
+        for (int i = 0; i < max; i++) {
+            int one_compare = (int)s1[i];
+            int two_compare = (int)s2[i];
+        
+            if (s1[i] == '\0' && s2[i] != '\0') {
+                to_return = -1;
+                return to_return;
+            } else if (s2[i] == '\0' && s1[i] != '\0') {
+                to_return = 1;
+                return to_return;
+            }
+        
+            if (one_compare > two_compare) {
+                to_return = 1;
+                return to_return;
+            } else if (one_compare < two_compare) {
+                to_return = -1;
+                return to_return;
+            }
         }
-    
-        if (one_compare > two_compare) {
-            to_return = 1;
-            return to_return;
-        } else if (one_compare < two_compare) {
-            to_return = -1;
-            return to_return;
-        }
-    }
-    return to_return;
+        return to_return;
     }
     
     int main () {
-    char imagine[] = "imagine";
-    char test[] = "imaginf";
-    int boolean;
-    
-    boolean = stringcmp(imagine,test);
-    
-    printf("%d", boolean);
+        char imagine[] = "imagine";
+        char test[] = "imaginf";
+        int boolean;
+        
+        boolean = stringcmp(imagine,test);
+        
+        printf("%d", boolean);
     }
