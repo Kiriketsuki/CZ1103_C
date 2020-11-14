@@ -59,28 +59,34 @@ void find_min_max_str(char word[][40], char *first, char *last, int size) {
 int find_sub_string(char *str, char *substr) {
     int to_return = 1;
     int found = 0;
-    
-    do {
+    char *ptsaver;
+    char *ptsaver2 = substr;
+
+    for (str; *str != '\0'; str++) {
         if (*str == *substr) {
+            ptsaver = str;
             found = 1;
-            // printf("found");
-            for (int i = 0; *(substr+i) != '\0' && *(str+i) != '\0'; i++) {
-                if (*(str+i+1) == '\0' && *(substr+i+1) != '\0') {
+            to_return = 1;
+            for (char *substrpt = ptsaver2; *substrpt != '\0'; substrpt++) {
+                if (*(str+1) == '\0' && *(substrpt+1) != '\0') {
+                    return 0;
+                } else if (*str != *substrpt) {
                     to_return = 0;
-                } else if (*(str+i) != *(substr+i)) {
-                    to_return = 0;
+                    str++;
+                } else {
+                    to_return = 1;
+                    str++;
                 }
             }
-            break;
+            str = ptsaver;
         }
-        str++;
-    } while(*str != '\0');
-    
-    if (found == 0) {
-        to_return = 0;
     }
-    
-    return to_return;
+
+    if (found == 0) {
+        return 0;
+    } else {
+        return to_return;
+    }
 }
 
 void next_customer(struct account *acct) {
