@@ -83,8 +83,46 @@ int platform_1_D(int ar[], int size) {
     return to_return;
 }
 
+void print_pattern_3(int height) {
+    int to_print;
+
+    for (int i = 1; i < height; i++) {
+        to_print = i;
+        for (int j = 1; j != i+1; j++) {
+            printf("%d", to_print);
+            if (to_print == 9) {
+                to_print = 0;
+            } else {
+                to_print++;
+            }
+        }
+        putchar('\n');
+    }
+}
+
+void insert(int max, int *size, int ar[], int num) {
+    int i = 0;
+    int *pt = ar;
+
+    printf("%d", num);
+    while (ar[i] < num) {
+        i++;
+    }
+    printf("%d", i);
+    for (int j = *size+1; j > i; j--) {
+        ar[j] = ar[j-1];
+    }
+
+    *(pt+i) = num;
+    putchar('\n');
+}
 
 int main() {
-    int arr[10] = {1,2,3,4,4,4,7,8,8,0};
-    printf("%d", platform_1_D(arr,10));
+    int test[10] = {1,2,3,4,5};
+    int size = 6;
+    // insert(10, &size, test, 7);
+
+    for (int i = 0; i < 10; i++) {
+        printf("%d", test[i]);
+    }
 }
